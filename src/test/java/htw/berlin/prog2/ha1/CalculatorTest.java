@@ -90,5 +90,24 @@ class CalculatorTest {
 
 
     //TODO hier weitere Tests erstellen
+
+    @Test
+    @DisplayName("should add and then remove the '-' at the beginning of the screen")
+    void testPressNegativeKeyTwice() {
+        Calculator calc = new Calculator();
+
+        calc.pressDigitKey(3);
+        calc.pressNegativeKey();
+        String expected = "-3";
+        String actual = calc.readScreen();
+        assertEquals(expected, actual);
+
+        calc.pressNegativeKey();
+        expected = "3";
+        actual = calc.readScreen();
+        assertEquals(expected, actual);
+    }
+
+
 }
 
