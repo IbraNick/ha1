@@ -122,6 +122,23 @@ class CalculatorTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    @DisplayName("should clear the screen but leave the memory when pressing the C-Key only once")
+    void testPressingClearKeyOnlyOnce(){
+        Calculator calc = new Calculator();
+
+        calc.pressDigitKey(3);
+        calc.pressBinaryOperationKey("+");
+        calc.pressClearKey();
+        calc.pressDigitKey(4);
+        calc.pressEqualsKey();
+
+        String expected = "7";
+        String actual = calc.readScreen();
+        assertEquals(expected, actual);
+
+    }
+
 
 }
 
