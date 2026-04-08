@@ -108,6 +108,20 @@ class CalculatorTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    @DisplayName("should show the result if the operation key is pressed a second time")
+    void testSecondPressOfOperationKey(){
+        Calculator calc = new Calculator();
+
+        calc.pressDigitKey(3);
+        calc.pressBinaryOperationKey("+");
+        calc.pressDigitKey(4);
+        calc.pressBinaryOperationKey("-");
+        String expected = "7";
+        String actual = calc.readScreen();
+        assertEquals(expected, actual);
+    }
+
 
 }
 
